@@ -1,0 +1,50 @@
+html, body {
+  background: #f1f1f1;
+  font-family: sans-serif;
+  padding: 1em;
+}
+
+h1 {
+  text-align: center;
+  color: #a8a8a8;
+}
+
+form {
+  max-width: 600px;
+  text-align: center;
+  margin: 20px auto;
+}
+
+input, textarea {
+  padding: 1em;
+  display: block;
+  width: 100%;
+  margin-top: 1em;
+  font-family: sans-serif;
+}
+
+textarea {
+  height: 100px;
+  width: 599px;
+}
+
+#add-question-button {
+  color: white;
+  background: steelblue;
+  cursor: pointer;
+  width: 628px;
+}
+
+/* .half {
+  float: left;
+  width: 48%;
+  margin-bottom: 1em;
+}
+
+.right {
+  width: 50%;
+}
+
+.left {
+  margin-right: 2%;
+} */
