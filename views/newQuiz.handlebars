@@ -1,14 +1,18 @@
-<h1> new quiz </h1>
+<h1> Create a New Quiz </h1>
 
-<form class="question-form">
-  <div class="half top question-form">
-    <textarea name="question" type="text" id="question-textarea" placeholder="Question"></textarea>
-  </div>
-  <div class="half bottom question-form">
-    <input type="text" id="choice-a-text" placeholder="Choice A">
-    <input type="text" id="choice-b-text" placeholder="Choice B">
-    <input type="text" id="choice-c-text" placeholder="Choice C">
-    <input type="text" id="choice-d-text" placeholder="Choice D">
-  </form>
-  <input type="submit" id="add-question-button">
+<form action="/newQuiz" method="post" class="new-quiz-form">
+    <input type="text" name="name" id="quiz-name" placeholder="Quiz Name">
+    <input type="text" name="subject" id="quiz-subject" placeholder="Subject of Quiz">
+  <input type="submit" id="create-quiz-button" value="Create Quiz">
 </form>
+
+<h1> Or Click an Incomplete Quiz to Edit It </h1>
+
+<ul>
+  {{#each allQuizzes}}
+    <div>
+      This dot id is {{ this.id }}
+       <a href="/editQuiz/{{this.id}}" class="quiz-choice-box"> Quiz Name: {{this.name}}, Status: {{ this.status }} </a>
+    </div>
+  {{/each}}
+</ul>

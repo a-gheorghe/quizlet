@@ -1,0 +1,30 @@
+<h1> Quiz {{ quizId }}, Question {{ question-number }} </h1>
+
+<form action="/add-question" method="post" class="question-form">
+  <a href="/admin" id="mark-complete-button"> Mark quiz as complete </a>
+  <div class="half top question-form">
+    <textarea name="question" type="text" id="question-textarea" placeholder="Question">{{question}}</textarea>
+  </div>
+  <div class="half bottom question-form">
+    <div class="choice-text">
+      <input type="text" name="choiceA" id="choice-a-text" placeholder="Choice A" value={{choiceA}}>
+      <input type="text" name="choiceB" id="choice-b-text" placeholder="Choice B" value={{choiceB}}>
+      <input type="text" name="choiceC" id="choice-c-text" placeholder="Choice C" value={{choiceC}}>
+      <input type="text" name="choiceD" id="choice-d-text" placeholder="Choice D" value={{choiceD}}>
+    </div>
+    <div class="choice-answer">
+      Correct answer is:
+      <div class="custom-dropdown">
+        <select name="corrAns" value={{corrAns}}>
+          <option value="" selected disabled hidden> Choose </option>
+          <option value="A"> Choice A </option>
+          <option value="B"> Choice B </option>
+          <option value="C"> Choice C </option>
+          <option value="D"> Choice D </option>
+        </select>
+    </div>
+    </div>
+  </div>
+  <input type="submit" id="add-question-button" value="Add this question">
+</form>
+{{ error }}

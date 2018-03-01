@@ -18,8 +18,16 @@ const Quiz = sequelize.define('quiz', {
     primaryKey: true,
     autoIncrement: true
   },
-  completed: {
-    type: Sequelize.BOOLEAN,
+  name: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  subject: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  status: {
+    type: Sequelize.STRING,
     allowNull: false
   }
 });
@@ -30,8 +38,8 @@ const Question = sequelize.define('question', {
     primaryKey: true,
     autoIncrement: true
   },
-  number: {
-    type: Sequelize.INTEGER,
+  questionText: {
+    type: Sequelize.TEXT,
     allowNull: false
   },
   choiceA: {
@@ -49,20 +57,24 @@ const Question = sequelize.define('question', {
   choiceD: {
     type: Sequelize.TEXT,
     allowNull: true
-  }
-});
-
-const Answer = sequelize.define('answer', {
-  id: {
-    type: Sequelize.INTEGER,
-    primaryKey: true,
-    autoIncrement: true
   },
-  answer: {
-    type: Sequelize.ENUM('A', 'B', 'C', 'D'),
-    allowNull: false
-  }
-});
+  corrAns: {
+      type: Sequelize.STRING,
+      allowNull: false
+    }
+  });
+
+// const Answer = sequelize.define('answer', {
+//   id: {
+//     type: Sequelize.INTEGER,
+//     primaryKey: true,
+//     autoIncrement: true
+//   },
+//   answer: {
+//     type: Sequelize.ENUM('A', 'B', 'C', 'D'),
+//     allowNull: false
+//   }
+// });
 
 const Student = sequelize.define('student', {
   id: {
@@ -99,7 +111,7 @@ const QuizResponse = sequelize.define('QuizResponse', {
 Quiz.hasMany(Question, { onDelete: 'CASCADE' }) // Question now has QuizId
 Quiz.hasMany(QuizResponse, { onDelete: 'CASCADE' }) // QuizResponse now has QuizId
 Question.hasMany(QuizResponse, { onDelete: 'CASCADE' }) // QuizResponse now has QuestionId
-Answer.hasMany(QuizResponse, { onDelete: 'CASCADE' }) // QuizResponse now has AnswerId
+// Answer.hasMany(QuizResponse, { onDelete: 'CASCADE' }) // QuizResponse now has AnswerId
 Student.hasMany(QuizResponse, { onDelete: 'CASCADE' }) // QuizResponse now has StudentId
 
 // Question now has QuizId foreign key
@@ -107,8 +119,8 @@ Quiz.hasMany(Question, { onDelete: 'CASCADE' })
 Question.belongsTo(Quiz, { onDelete: 'CASCADE' })
 
 // Question now has AnswerId foreign key
-Answer.hasMany(Question, { onDelete: 'CASCADE' })
-Question.belongsTo(Answer, { onDelete: 'CASCADE' })
+// Answer.hasMany(Question, { onDelete: 'CASCADE' })
+// Question.belongsTo(Answer, { onDelete: 'CASCADE' })
 
 // Make a student - quiz join table
 Student.belongsToMany(Quiz, { through: 'student_quizzes' })
@@ -120,6 +132,6 @@ module.exports = {
   Quiz,
   Question,
   Student,
-  Answer,
+  // Answer,
   QuizResponse
 };
