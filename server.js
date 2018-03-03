@@ -9,7 +9,13 @@ const auth = require('./routes/auth');
 const routes = require('./routes/routes')
 
 const hbs = require('express-handlebars');
-app.engine('.handlebars', hbs({ defaultLayout: 'main' }));
+app.engine('.handlebars', hbs({ defaultLayout: 'main',
+helpers: {
+   isSelected: function (letter) {
+     return '';
+   }
+ }
+}));
 app.set('view engine', 'handlebars');
 app.set('views', path.join(__dirname, 'views'));
 

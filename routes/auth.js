@@ -69,13 +69,18 @@ router.post('/register', (req, res) => {
     res.render('login')
   })
 
-  router.post('/login', (req, res, next) => {
-    passport.authenticate('local', function(err, user) {
-      if (err) { return next(err); }
-      // Redirect if it fails
-      if (!user) { return res.render('login', {error: "No such username/password combination. Try again."}); }
-      res.render('studentHome')
-    })(req, res, next);
-  });
+  // router.post('/login', (req, res, next) => {
+  //   passport.authenticate('local', function(err, user) {
+  //     if (err) { return next(err); }
+  //     // Redirect if it fails
+  //     if (!user) { return res.render('login', {error: "No such username/password combination. Try again."}); }
+  //     res.render('studentHome')
+  //   })(req,res,next);
+  // });
+
+  router.post('/login', passport.authenticate('local',{
+    successRedirect: '/studentHome',
+    failureRedirect: '/login'
+  }));
 
   module.exports = router;

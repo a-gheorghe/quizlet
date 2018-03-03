@@ -1,0 +1,33 @@
+<h1> Taking quiz </h1>
+
+Name: {{ student.username }} <br>
+
+
+<ul>
+  {{#each questions}}
+    {{#if this.checked}}
+      {{#if this.correct }}
+        <div id="question-block-edit-answered">
+            Question: {{ this.questionText }}
+            <span class="right-wrong-pic">
+              <img id="check" src="https://openclipart.org/download/257462/Checkmark.svg">
+            </span>
+        </div>
+      {{else}}
+      <div id="question-block-edit-answered">
+          Question: {{ this.questionText }}
+          <span class='right-wrong-pic'>
+            <img id="x" src="http://cdn.onlinewebfonts.com/svg/img_419410.png">
+          </span>
+      </div>
+      {{/if}}
+    {{else}}
+      <div id="question-block-edit">
+        <a href="/takeQuiz/{{this.quizId}}/Question/{{this.id}}">
+          Question: {{ this.questionText }}
+          Correct: {{ this.correct }}
+        </a>
+      </div>
+    {{/if}}
+  {{/each}}
+</ul>

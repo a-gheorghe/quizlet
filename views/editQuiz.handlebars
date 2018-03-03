@@ -1,1 +1,16 @@
-<h1> editing quiz </h1>
+<h1> Edit quiz {{session.quizId}} </h1>
+
+
+Choose question to edit
+<ul>
+  {{#each questions}}
+    <div id="question-block-edit">
+      <a href="/editQuiz/{{this.quizId}}/Question/{{this.id}}">
+        Question: {{ this.questionText }}
+      </a>
+    </div>
+
+  {{/each}}
+</ul>
+Or add new question
+<a href="/newQuestion"> Add new question </a>

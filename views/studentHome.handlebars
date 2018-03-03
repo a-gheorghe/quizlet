@@ -1,1 +1,13 @@
-<h1> Home Page Signed In </h1>
+<h1> Student Home </h1>
+
+Student name: {{ student.username }}
+
+
+<ul>
+  <b>Quizzes</b>
+  {{#each quizzes}}
+      <div>
+        <a href="takeQuiz/{{this.id}}"  class="quiz-choice-box"> <br> <br> Quiz Name: {{this.name}} <br> Status: {{this.status}} </a>
+      </div>
+  {{/each}}
+</ul>

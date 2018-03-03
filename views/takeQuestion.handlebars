@@ -1,0 +1,33 @@
+<h1> Quiz {{ quizId }} <br> Question ID: {{ questionId }} </h1>
+
+<a href="/prevQuestion"> Previous Question </a>
+<a href="/nextQuestion"> Next Question </a>
+
+<form action="/submitAnswer" method="post" class="question-form">
+  <!-- <a href="/newQuiz" id="mark-complete-button"> Mark quiz as complete </a> -->
+  <div class="half top question-form">
+    <textarea name="question" type="text" id="question-textarea" placeholder="Question" readonly>{{question}}</textarea>
+  </div>
+  <div class="half bottom question-form">
+    <div class="choice-text">
+      <input type="text" name="choiceA" id="choice-a-text" placeholder="Choice A" value={{choiceA}} readonly>
+      <input type="text" name="choiceB" id="choice-b-text" placeholder="Choice B" value={{choiceB}} readonly>
+      <input type="text" name="choiceC" id="choice-c-text" placeholder="Choice C" value={{choiceC}} readonly>
+      <input type="text" name="choiceD" id="choice-d-text" placeholder="Choice D" value={{choiceD}} readonly>
+    </div>
+    <div class="take-answer">
+      Answer:
+      <div class="custom-dropdown">
+        <select name="chosenAns">
+          <option value="" selected disabled hidden> Choose </option>
+          <option value="A"> Choice A </option>
+          <option value="B"> Choice B </option>
+          <option value="C"> Choice C </option>
+          <option value="D"> Choice D </option>
+        </select>
+    </div>
+    </div>
+  </div>
+  <input type="submit" id="submit-answer-button" value="Submit Answer">
+</form>
+{{ error }}

@@ -99,7 +99,7 @@ const QuizResponse = sequelize.define('QuizResponse', {
     autoIncrement: true
   },
   response: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.STRING,
     allowNull: false
   },
   correct: {
