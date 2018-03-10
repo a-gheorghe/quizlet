@@ -1,11 +1,39 @@
+<div class="wrapper">
+  <!-- Navigation -->
+  <nav class="main-nav">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
 
-<a href="/register" id="register-button"> Register </a>
-<a href="/"> Home </a>
-<h1> Login </h1>
-<form action="/login" method="post">
-    <input type="text" name="username" placeholder="username">
-    <input type="text" name="password" placeholder="password">
-  <input type="submit" id="login-button" value="Login"> <br>
+  <!-- Top Container -->
+  <section class="top-container">
+    <header class="showcase">
+      <h1> Login </h1>
+      <form action="/login" method="post">
+        <input class="input-field" type="text" name="username" placeholder="username"><br>
+        <input class="input-field" type="password" name="password" placeholder="password"><br><br>
+        <input type="submit" class="login-btn btn" value="Login"> <br>
+        <h1>{{ error }}</h1>
+      </form>
+    </header>
+      <div class="top-box top-box-a">
+        <i class="fas fa-user-plus fa-4x"></i>
+        <h3><a href="/register" class="btn"> Register </a></h3>
+      </div>
+      <div class="top-box top-box-b">
+        <i class="fas fa-book fa-4x"></i>
+        <h3><a href="/newQuiz" class="btn"> Make a Quiz </a></h3>
+      </div>
+  </section>
 
-  {{ error }}
-</form>
+  <!-- Footer -->
+  <footer>
+    <p> A Gheorghe &copy; 2018 </p>
+  </footer>
+
+</div>
+<!-- wrapper ends -->

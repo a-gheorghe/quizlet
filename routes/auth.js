@@ -22,7 +22,7 @@ passport.use(new LocalStrategy((username, password, done) => {
   Student.findOne({ where: { username } })
   .then(student => {
     if (!student) {
-      done(null, false);
+      done(null, false, { error: 'No such username/password combination' });
     }
     else if (student.password === password) done(null, student);
     else done(null, false);
@@ -33,7 +33,7 @@ passport.use(new LocalStrategy((username, password, done) => {
 }));
 
 router.get('/register', (req, res) => {
-  res.render('register')
+  res.render('register', {css:['register.css']})
 });
 
 router.post('/register', (req, res) => {
@@ -51,7 +51,7 @@ router.post('/register', (req, res) => {
       } else if (!student){
         Student.create(req.body)
         .then(response => {
-          res.render('login')
+          res.render('login', {css:['login.css']})
         })
         .catch(error => {
           console.log('Error registering: ', error)
@@ -66,7 +66,7 @@ router.post('/register', (req, res) => {
 
 
   router.get('/login', (req,res) => {
-    res.render('login')
+    res.render('login', {css:['login.css']})
   })
 
   // router.post('/login', (req, res, next) => {

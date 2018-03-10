@@ -1,12 +1,39 @@
-<h1> REGISTER PAGE </h1>
+<div class="wrapper">
+  <!-- Navigation -->
+  <nav class="main-nav">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
 
-<a href="/login" id="login-button"> Login </a>
+  <!-- Top Container -->
+  <section class="top-container">
+    <header class="showcase">
+      <h1> Register </h1>
+      <form action="/register" method="post">
+          <input class="input-field" type="text" name="username" placeholder="username" value={{usernameValue}}> <br>
+          <input class="input-field" type="text" name="password" placeholder="password"><br>
+        <input type="submit" class="register-btn btn" value="Register">
+        {{ error }}
+      </form>
+    </header>
+      <div class="top-box top-box-a">
+        <i class="fas fa-user-plus fa-4x"></i>
+        <h3><a href="/login" class="btn"> Login </a></h3>
+      </div>
+      <div class="top-box top-box-b">
+        <i class="fas fa-book fa-4x"></i>
+        <h3><a href="/newQuiz" class="btn"> Make a Quiz </a></h3>
+      </div>
+  </section>
 
-<h1> Register <h1>
-<form action="/register" method="post">
-    <input type="text" name="username" placeholder="username" value={{usernameValue}}>
-    <input type="text" name="password" placeholder="password">
-  <input type="submit" id="register-button" value="Register">
-</form>
+  <!-- Footer -->
+  <footer>
+    <p> A Gheorghe &copy; 2018 </p>
+  </footer>
 
-{{ error }}
+</div>
+<!-- wrapper ends -->

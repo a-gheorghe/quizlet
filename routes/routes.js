@@ -5,11 +5,7 @@ const { Quiz, Question, Student, Answer, QuizResponse, Sequelize } = require('..
 // Public Routes
 
 router.get('/', (req,res) => {
-  res.render('home')
-})
-
-router.get('/admin', (req,res) => {
-  res.render('admin')
+  res.render('home', {css:['home.css']})
 })
 
 router.get('/newQuiz', (req,res) => {
